@@ -104,3 +104,17 @@ def login(request):
         return JsonResponse({'error': 'Method not allowed'}, status=405)
 
 # **********************************************************************************
+# ListAPIView provides us with a read-only endpoint
+
+# class TodoList(generics.ListAPIView):
+#     # ListAPIView requires two mandatory attributes(serializer_class and queryset)
+
+#     # We specify TodoSerializer which we have earlier implemented in "api/serializers.py"
+#     serializer_class = TodoSerializer
+
+#     # get_queryset returns the queryset of todo objects for the view
+#     # we specify the queryset as all todo's which match the user
+#     # we order the todo by created date i.e we show the latest todo first
+#     def get_queryset(self):
+#         user = self.request.user
+#         return Todo.objects.filter(user=user).order_by('-created')
